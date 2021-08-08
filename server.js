@@ -2,7 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const Todo = require("./models/todo");
-const { addListener } = require("nodemon");
 const todoRouter = require("./routes/todos.js");
 const app = express();
 
