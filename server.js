@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
+const expressLayouts = require("express-ejs-layouts");
 const Todo = require("./models/todo");
 const todoRouter = require("./routes/todos.js");
 const app = express();
@@ -20,6 +21,8 @@ db.once("open", () => console.log("connected to mongoose"));
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
+app.use(expressLayouts);
+app.set("layout", "layout");
 
 app.get("/", async (req, res) => {
   const todos = await Todo.find().sort({ date: "desc" });
