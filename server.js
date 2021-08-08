@@ -6,7 +6,7 @@ const todoRouter = require("./routes/todos.js");
 const app = express();
 
 db_url = process.env.DATABASE_URL || "mongodb://localhost/todo";
-console.log(db_url);
+console.log("db_url: " + db_url);
 
 mongoose.connect(db_url, {
   useNewUrlParser: true,
